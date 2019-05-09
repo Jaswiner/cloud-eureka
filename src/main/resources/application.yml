@@ -1,0 +1,56 @@
+
+
+## Server name ##
+spring:
+  application:
+    name: cloud-eureka-server
+  profiles:
+    active: peer1
+---
+################
+## 高可用环境1 ##
+################
+spring:
+  profiles: peer1
+
+## Server Port ##
+server:
+  port: 8761
+
+## eureka ##
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:8762/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+---
+#################
+### 高可用环境2 ##
+#################
+#spring:
+#  profiles: peer2
+#
+### Server Port ##
+#server:
+#  port: 8762
+#
+### eureka ##
+#eureka:
+#  instance:
+#    hostname: 127.0.0.1
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:8761/eureka/
+
+---
+##########
+## 安全 ##
+##########
+spring:
+  security:
+    user:
+      name: eureka
+      password: Jasmine1017@wyz
